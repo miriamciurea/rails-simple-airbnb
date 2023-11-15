@@ -1,0 +1,30 @@
+<%= link_to "New flat", new_flat_path %>
+<p style="color: green"><%= notice %></p>
+
+<h1>Flats</h1>
+
+<div id="flats" style="display: grid; grid-template-columns: 1fr 1fr 1fr">
+  <% @flats.each do |flat| %>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="https://unsplash.com/photos/interior-design-of-modern-apartment-gray-sofa-in-contemporary-living-room-blue-stucco-mockup-wall-home-design-3d-rendering-ajcet7UJJwY" alt="Card image cap">
+    <div class="card-body" style='background-color: #F5F5F5'>
+        <h2><%= flat.name %></h2>
+        <h3><%= flat.address %><h3>
+
+      <%# <p>
+        <strong>Description:</strong>
+        <%= flat.description %>
+      <p>
+        <i class="fa-regular fa-money-bill-1"></i> <%= flat.price_per_night %>
+      </p>
+      <p>
+        <i class="fa-solid fa-people-line"></i> <%= flat.number_of_guests %>
+      </p>
+    </div>
+    <div style="padding: 10px">
+      <p><span style="color: blue"><%= link_to "More info", flat %></span>
+      <span style="color: yellow"> <%= link_to "Edit this flat", edit_flat_path(flat), style: "color: #C9C140" %><span> <%= link_to "Remove", flat, method: :delete, style: "color: #C95A40" %></p>
+    </div>
+    </div>
+  <% end %>
+</div>
